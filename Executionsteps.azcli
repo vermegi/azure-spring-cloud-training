@@ -1,3 +1,5 @@
+#Demo1
+
 az login
 
 az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
@@ -6,5 +8,12 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 az configure --defaults group=demo-azurespringcloud
 az configure --defaults spring-cloud=demospringcloud
+
+
+#Demo2
+
+#download sample app
+curl https://start.spring.io/starter.tgz -d dependencies=web -d baseDir=simple-microservice -d bootVersion=2.1.9.RELEASE | tar -xzvf -
+
 
 
