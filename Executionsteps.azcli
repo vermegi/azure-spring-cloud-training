@@ -1,0 +1,10 @@
+az login
+
+az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+
+#create azure spring cloud in the portal
+
+az configure --defaults group=demo-azurespringcloud
+az configure --defaults spring-cloud=demospringcloud
+
+
