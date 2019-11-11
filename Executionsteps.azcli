@@ -123,3 +123,16 @@ az spring-cloud app deploy -n weather-service --jar-path target/demo-0.0.1-SNAPS
 
 ```
 
+
+# Demo 8
+
+```bash
+curl https://start.spring.io/starter.tgz -d dependencies=cloud-gateway,cloud-eureka,cloud-config-client -d baseDir=gateway -d bootVersion=2.1.9.RELEASE | tar -xzvf -
+```
+
+```bash
+az spring-cloud app create -n gateway --is-public true
+
+./mvnw clean package -DskipTests -Pcloud
+az spring-cloud app deploy -n gateway --jar-path target/demo-0.0.1-SNAPSHOT.jar
+```
