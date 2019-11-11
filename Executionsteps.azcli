@@ -136,3 +136,10 @@ az spring-cloud app create -n gateway --is-public true
 ./mvnw clean package -DskipTests -Pcloud
 az spring-cloud app deploy -n gateway --jar-path target/demo-0.0.1-SNAPSHOT.jar
 ```
+
+# Demo 9 
+
+https://demospringcloud-gateway.azuremicroservices.io/WEATHER-SERVICE/weather/city?name=Paris%2C%20France
+https://demospringcloud-gateway.azuremicroservices.io/WEATHER-SERVICE/weather/city?name=Paris%2C%20France./
+
+
