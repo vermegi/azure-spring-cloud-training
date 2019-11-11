@@ -97,3 +97,29 @@ Bind this app to our cosmos db in the portal
 ./mvnw clean package -DskipTests -Pcloud
 az spring-cloud app deploy -n city-service --jar-path target/demo-0.0.1-SNAPSHOT.jar
 ```
+
+
+# Demo 7
+
+```bash
+read -p "Password: " passw ; echo
+az mysql server create --name gitte-azure-spring-cloud-training --sku-name B_Gen5_1 --admin-user givermei --admin-password $passw --location westeurope  --version 5.7
+
+az mysql db create --name azurespringcloudtraining --server-name gitte-azure-spring-cloud-training
+```
+
+```bash
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,mysql,cloud-eureka,cloud-config-client -d baseDir=weather-service -d bootVersion=2.1.9.RELEASE | tar -xzvf -
+```
+
+```bash
+az spring-cloud app create -n weather-service
+```
+
+
+```bash
+./mvnw clean package -DskipTests -Pcloud
+az spring-cloud app deploy -n weather-service --jar-path target/demo-0.0.1-SNAPSHOT.jar
+
+```
+
