@@ -50,4 +50,29 @@ az spring-cloud app deploy -n simple-microservice --jar-path target/demo-0.0.1-S
 
 ## test out the app in the cloud
 
+# Demo 3
 
+## create log analytics workspace
+az monitor log-analytics workspace create --workspace-name demospringcloudworkspace -l westeurope 
+
+## connect workspace to spring cloud (in portal)
+Since the above az statement already connects the workspace to our spring cloud (probably because of the default config for az statements we have???), you only need to select the monitor diagnostic setting in the portal and add additional monitoring settings.
+
+# Demo 4
+
+I configured my config repo in a private azure devops repo, created Git credentials for this repo in azure devops and linked that repo to spring cloud config server.
+
+
+# Demo 5 
+
+```bash
+curl https://start.spring.io/starter.tgz -d dependencies=web,cloud-eureka,cloud-config-client -d baseDir=spring-cloud-microservice -d bootVersion=2.1.9.RELEASE | tar -xzvf -
+```
+
+```bash
+az spring-cloud app create -n spring-cloud-microservice
+
+./mvnw clean package -DskipTests -Pcloud
+
+az spring-cloud app deploy -n spring-cloud-microservice --jar-path target/demo-0.0.1-SNAPSHOT.jar
+```
