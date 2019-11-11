@@ -1,22 +1,53 @@
-#Demo1
 
+# Demo1
+
+```bash
 az login
-
 az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+```
 
-#create azure spring cloud in the portal or through cli
+## create azure spring cloud in the portal or through cli
+
+```bash
 az group create -n demo-azurespringcloud
 az spring-cloud create -n demospringcloud -g demo-azurespringcloud -l westeurope
 
-
 az configure --defaults group=demo-azurespringcloud
 az configure --defaults spring-cloud=demospringcloud
+```
 
+# Demo2
 
-#Demo2
+download sample app
 
-#download sample app
+```bash
 curl https://start.spring.io/starter.tgz -d dependencies=web -d baseDir=simple-microservice -d bootVersion=2.1.9.RELEASE | tar -xzvf -
+```
+add RestController and GetMapping
+test it out locally:
 
+```bash
+./mvnw package
+./mvnw spring-boot:run
+```
+
+test out the application through port mapping
+apparently this is not working (error page shown)
+however, if you kill the app and rerun through VSO debug, you will see breakpoint be hit in your get action
+
+## Create and deploy on Azure Spring Cloud
+
+```bash
+az spring-cloud app create -n simple-microservice
+```
+
+Build and clean
+
+```bash
+./mvnw clean package
+az spring-cloud app deploy -n simple-microservice --jar-path target/demo-0.0.1-SNAPSHOT.jar
+```
+
+## test out the app in the cloud
 
 
