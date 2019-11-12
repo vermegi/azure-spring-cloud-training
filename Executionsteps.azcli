@@ -142,6 +142,8 @@ az spring-cloud app deploy -n gateway --jar-path target/demo-0.0.1-SNAPSHOT.jar
 https://demospringcloud-gateway.azuremicroservices.io/WEATHER-SERVICE/weather/city?name=Paris%2C%20France
 https://demospringcloud-gateway.azuremicroservices.io/WEATHER-SERVICE/weather/city?name=Paris%2C%20France./
 
+https://spring-training.azureedge.net/?
+
 # Demo 10
 
 az ad sp create-for-rbac --name gitte-bootiful-test --role contributor --scopes /subscriptions/<azure-subscription-id>/resourceGroups/<resource-group-name> --sdk-auth
