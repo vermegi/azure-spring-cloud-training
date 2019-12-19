@@ -9,7 +9,7 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 ## create azure spring cloud in the portal or through cli
 
 ```bash
-az group create -n demo-azurespringcloud
+az group create -n demo-azurespringcloud -l westeurope
 az spring-cloud create -n demospringcloud -g demo-azurespringcloud -l westeurope
 
 az configure --defaults group=demo-azurespringcloud
